@@ -9,7 +9,7 @@ const getMaticPrice = async () => {
     let response;
     try {
       response = await axios.get(
-        "https://min-api.cryptocompare.com/data/price?fsym=MATIC&tsyms=USD",
+        "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD",
         {
           headers: {
             "X-CMC_PRO_API_KEY": process.env.COINMARKETCAP_API_KEY,

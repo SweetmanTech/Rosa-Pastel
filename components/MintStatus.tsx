@@ -81,7 +81,7 @@ function SaleStatus({
         signer
       )
 
-      tx = contract.mint(mintCounter, {
+      tx = contract.mint(account.address, mintCounter, {
         value: BigNumber.from(collection.salesConfig.publicSalePrice)
           .mul(mintCounter)
           .toString(),
@@ -154,7 +154,7 @@ function SaleStatus({
 
   return (
     <>
-      {!saleNotStarted && (
+      {/* {!saleNotStarted && (
         <CrossmintPayButton
           clientId={process.env.NEXT_PUBLIC_CROSSMINT_CLIENT_ID}
           environment="production"
@@ -166,7 +166,7 @@ function SaleStatus({
             _target: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
           }}
         />
-      )}
+      )} */}
       <ConnectButton.Custom>
         {({ openConnectModal }) => (
           <Button
@@ -272,7 +272,7 @@ export function MintStatus({
   const [isMinted, setIsMinted] = useState<boolean>(false)
   const [mintCounter, setMintCounter] = useState(1)
   const [maticPrice, setMaticPrice] = useState(0)
-  const [showCryptoPrice, setShowCryptoPrice] = useState(false)
+  const [showCryptoPrice, setShowCryptoPrice] = useState(true)
   const availableMints = maxPerWallet - (userMintedCount || 0)
   const internalPrice = allowlistEntry?.price || collection?.salesConfig?.publicSalePrice
   const displayPrice = useMemo(
@@ -332,7 +332,7 @@ export function MintStatus({
                 ? 'Free'
                 : `${showCryptoPrice ? '' : '$'}${
                     displayPrice == 0 ? 0.01 * mintCounter : displayPrice
-                  } ${showCryptoPrice ? 'MATIC' : ''}`}
+                  } ${showCryptoPrice ? 'ETH' : ''}`}
             </Heading>
           </Stack>
 
