@@ -13,10 +13,6 @@ interface HomePageProps {
 }
 
 const HomePage: NextPage<HomePageProps> = ({ collection }) => {
-  console.log(
-    'ipfsImage(collection.editionMetadata.animationURI)',
-    ipfsImage(collection.editionMetadata.animationURI)
-  )
   return (
     <>
       <SeoHead />
